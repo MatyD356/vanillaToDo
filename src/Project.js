@@ -1,7 +1,8 @@
 class Project {
-    constructor(name, date) {
-        this.projectName = name;
+    constructor(name, date, proiority) {
+        this.name = name;
         this.date = date;
+        this.proiority = proiority;
         this.projectToDo = [];
     }
     changeName(newName) {

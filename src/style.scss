@@ -12,6 +12,23 @@
       min-height: 100vh;
       width: 20vw;
       margin: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      .project-container {
+        .project-div {
+          cursor: pointer;
+          margin: 1rem;
+          border: 1px solid green;
+
+          .project-title {
+            color: blue;
+          }
+        }
+      }
+      .add-project {
+        order: 1;
+      }
     }
     .main-content {
       background-color: green;
