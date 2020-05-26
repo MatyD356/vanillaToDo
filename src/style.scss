@@ -27,6 +27,11 @@
         }
       }
       .add-project {
+        order: 2;
+      }
+      .project-form {
+        height: 20vh;
+        background-color: blue;
         order: 1;
       }
     }

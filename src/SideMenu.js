@@ -3,13 +3,8 @@ import { Project } from './Project';
 class SideMenu {
     constructor() {
         this.projects = [
-            (new Project("default", (new Date()))),
-            (new Project("work", (new Date())))
         ];
         this.aside = document.createElement("aside");
-    }
-    addProjectsList(newProject) {
-        this.projects.push(newProject);
     }
     projectsList() {
         return this.projects;
@@ -19,12 +14,37 @@ class SideMenu {
         projectButton.classList.add("btn", "add-project");
         projectButton.textContent = "ADD PROJECT";
         projectButton.addEventListener("click", () => {
-            //open form method from SideMenu obj
-            this.addProjectsList(new Project("special", (new Date())));
-            console.log(this.projects);
-            this.renderProjects();
+            this.addNewProjectForm();
         })
         this.aside.appendChild(projectButton);
+    }
+    addNewProject() {
+        //get values from form and crate new project obj
+        const form = document.querySelector(".project-form");
+        if (form) {
+            let name = null;
+            let date = null;
+            if (/([A-Z]){3,}/gi.test(document.querySelector(".name-input").value)) {
+                name = document.querySelector(".name-input").value;
+            } else {
+                alert("bad name");
+            } if (/(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/.test(document.querySelector(".date-input").value)) {
+                date = document.querySelector(".date-input").value;
+            } else {
+                alert("no date");
+            }
+            if (date && name) {
+                this.projects.push((new Project(name, date)));
+                this.removeNewProjectForm();
+                this.addProjectButton();
+            }
+        }
+    }
+    removeProjectButton() {
+        //removeButton exmaple when form is opened
+        if (document.querySelector(".add-project")) {
+            document.querySelector(".add-project").remove();
+        }
     }
     renderProjects() {
         if (document.querySelector(".project-container")) {
@@ -48,10 +68,50 @@ class SideMenu {
         this.aside.appendChild(projectsContainer);
     }
     addNewProjectForm() {
+        this.removeProjectButton();
         const form = document.createElement("div");
-        form.classList.add("projesct-form", "hidden");
-
+        form.classList.add("project-form", "hidden");
         this.aside.appendChild(form);
+        const nameInputTitle = document.createElement("p");
+        nameInputTitle.classList.add("add-project-form-title");
+        nameInputTitle.textContent = "Project name";
+        form.appendChild(nameInputTitle);
+        const nameInput = document.createElement("input");
+        nameInput.classList.add("name-input", "inpt");
+        nameInput.type = "text";
+        form.appendChild(nameInput);
+        const dateInputTitle = document.createElement("p");
+        dateInputTitle.classList.add("add-project-form-title");
+        dateInputTitle.textContent = "Project date";
+        form.appendChild(dateInputTitle);
+        const dateInput = document.createElement("input");
+        dateInput.classList.add("date-input", "inpt");
+        dateInput.type = "date";
+        form.appendChild(dateInput);
+        const buttonsContainer = document.createElement("div");
+        form.appendChild(buttonsContainer);
+        const addButton = document.createElement("button");
+        addButton.classList.add("btn", "new-project-form-add");
+        addButton.textContent = "ADD";
+        addButton.addEventListener("click", () => {
+            this.addNewProject();
+            this.renderProjects();
+        })
+        buttonsContainer.appendChild(addButton);
+        const cancelButton = document.createElement("button");
+        cancelButton.classList.add("btn", "new-project-form-cancel");
+        cancelButton.textContent = "CANCEL";
+        cancelButton.addEventListener("click", () => {
+            this.removeNewProjectForm();
+            this.addProjectButton();
+        })
+        buttonsContainer.appendChild(cancelButton);
+    }
+    removeNewProjectForm() {
+        //hide form
+        if (document.querySelector(".project-form")) {
+            document.querySelector(".project-form").remove();
+        }
     }
     render(target) {
         this.aside.classList.add("aside-menu");
