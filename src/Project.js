@@ -14,8 +14,27 @@ class Project {
     addToDo(newToDo) {
         this.projectToDo.push(newToDo);
     }
-    removeToDo(toDoToRemove) {
-        //need to find and delete from arr
+    renderProjectToContainer(container) {
+        container.innerHTML = "";
+        //controls
+        const controlsDiv = document.createElement("div");
+        controlsDiv.classList.add("project-controls");
+        container.appendChild(controlsDiv);
+        //title
+        const projectTitle = document.createElement("h2");
+        projectTitle.textContent = this.name;
+        controlsDiv.appendChild(projectTitle);
+        // add button
+        const newToDoButton = document.createElement("button");
+        newToDoButton.textContent = "ADD NEW TASK";
+        newToDoButton.addEventListener("click", () => {
+        });
+        controlsDiv.appendChild(newToDoButton);
+    }
+    renderToDoes() {
+        for (let i = 0; this.projectToDo.length; i++) {
+            console.log(`toDo${i}`);
+        }
     }
 }
 
