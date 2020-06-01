@@ -1,1 +1,35 @@
-*{box-sizing:border-box;margin:0;padding:0}* body{background-color:black}* body #content{display:flex}* body .aside-menu{background-color:red;min-height:100vh;width:20vw;margin:1rem;display:flex;flex-direction:column}* body .aside-menu .project-container .project-div{cursor:pointer;margin:1rem;border:1px solid green}* body .aside-menu .project-container .project-div .project-title{color:blue}* body .aside-menu .add-project{order:2}* body .aside-menu .project-form{height:20vh;background-color:blue;order:1}* body .main-content{background-color:green;width:80vw;min-height:100vh;margin:1rem}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+  * body {
+    background-color: black; }
+    * body #content {
+      display: flex; }
+    * body .aside-menu {
+      background-color: red;
+      min-height: 100vh;
+      width: 20vw;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column; }
+      * body .aside-menu .project-container .project-div {
+        cursor: pointer;
+        margin: 1rem;
+        border: 1px solid green; }
+        * body .aside-menu .project-container .project-div .project-title {
+          color: blue; }
+      * body .aside-menu .add-project {
+        order: 2; }
+      * body .aside-menu .project-form {
+        height: 20vh;
+        background-color: blue;
+        order: 1; }
+    * body .main-content {
+      background-color: green;
+      width: 80vw;
+      min-height: 100vh;
+      margin: 1rem; }
+  * .new-toDo-form {
+    height: 100vh;
+    background-color: yellow; }
