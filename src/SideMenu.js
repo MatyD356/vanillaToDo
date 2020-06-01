@@ -40,6 +40,11 @@ class SideMenu {
             }
         }
     }
+    removeProject(index) {
+        if (this.projects.length >= index) {
+            this.projects.splice(index, 1);
+        }
+    }
     removeProjectButton() {
         //removeButton exmaple when form is opened
         if (document.querySelector(".add-project")) {
@@ -63,6 +68,23 @@ class SideMenu {
             dueDate.classList.add("project-due-date");
             dueDate.textContent = this.projects[i].date;
             projectDiv.appendChild(dueDate);
+            /* edit buttons
+            const changeName = document.createElement("button");
+            changeName.textContent = "edit";
+            projectDiv.appendChild(changeName);
+            projectsContainer.appendChild(projectDiv);
+            const changeDate = document.createElement("button");
+            changeDate.textContent = "edit";
+            projectDiv.appendChild(changeDate);
+            projectsContainer.appendChild(projectDiv); */
+            const deleteProject = document.createElement("button");
+            deleteProject.id = i;
+            deleteProject.textContent = "delete";
+            deleteProject.addEventListener("click", (e) => {
+                e.target.parentElement.remove();
+                this.removeProject(e.target.id);
+            })
+            projectDiv.appendChild(deleteProject);
             projectsContainer.appendChild(projectDiv);
         }
         this.aside.appendChild(projectsContainer);
