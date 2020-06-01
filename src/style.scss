@@ -42,8 +42,21 @@
       margin: 1rem;
     }
   }
-  .new-toDo-form {
+  .new-ToDo-form-container {
+    position: absolute;
+    left: 0;
+    top: 0;
     height: 100vh;
-    background-color: yellow;
+    width: 100%;
+    background-color: rgba(0, 17, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .new-ToDo-form {
+      width: 50%;
+      height: 50vh;
+      background-color: black;
+    }
   }
 }

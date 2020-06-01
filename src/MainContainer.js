@@ -14,11 +14,17 @@ class MainContainer {
         const newToDoButton = document.createElement("button");
         newToDoButton.textContent = "ADD NEW TASK";
         newToDoButton.addEventListener("click", () => {
+            this.addNewToDoForm();
         });
         controlsDiv.appendChild(newToDoButton);
     }
-    addNewToDo() {
-
+    addNewToDoForm() {
+        const formContainer = document.createElement("div");
+        formContainer.classList.add("new-ToDo-form-container");
+        document.body.appendChild(formContainer);
+        const form = document.createElement("div");
+        form.classList.add("new-ToDo-form");
+        formContainer.appendChild(form);
     }
     render(target) {
         let main = document.createElement("main");
