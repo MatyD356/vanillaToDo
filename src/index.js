@@ -10,3 +10,5 @@ let AsideMenu = new SideMenu();
 let MainContent = new MainContainer();
 AsideMenu.render(document.querySelector("#content"));
 MainContent.render(document.querySelector("#content"));
+
+export { MainContent };
