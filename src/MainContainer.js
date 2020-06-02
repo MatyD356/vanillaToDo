@@ -69,7 +69,21 @@ class MainContainer {
         const cancelNewToDo = document.createElement("button");
         cancelNewToDo.classList.add("cancel-NewToDo-button");
         cancelNewToDo.textContent = "CANCEL";
+        cancelNewToDo.addEventListener("click", () => {
+            this.removeNewToDoForm();
+        });
         form.appendChild(cancelNewToDo);
+    }
+    validateFormInput() {
+        if (true) {
+
+        }
+        else {
+            alert("bad")
+        }
+    }
+    removeNewToDoForm() {
+        document.querySelector(".new-ToDo-form-container").remove();
     }
     render(target) {
         let main = document.createElement("main");
