@@ -1,10 +1,9 @@
 class ToDo {
     constructor(title, desc, date, priority, checked) {
         this.title = title;
-        this.desc = desc;
         this.date = date;
+        this.desc = desc;
         this.priority = priority;
-        this.checked = checked;
     }
     changeTitle(newTitle) {
         this.priority = newTitle;
