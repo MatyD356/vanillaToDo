@@ -71,7 +71,14 @@ class MainContainer {
             let title = document.querySelector(".toDo-title-input").value;
             let date = document.querySelector(".toDo-date-input").value;
             let desc = document.querySelector(".toDo-desc-input").value;
-            target.projectToDo.push(new ToDo(title, desc, date));
+            let priority = null;
+            let priorityContainer = document.querySelector(".priority-container");
+            for (let i = 0; i < priorityContainer.children.length; i++) {
+                if (priorityContainer.children[i].checked) {
+                    priority = priorityContainer.children[i].dataset.number;
+                }
+            }
+            target.projectToDo.push(new ToDo(title, desc, date, priority));
             this.renderToDoes(document.querySelector(".main-content"), target);
             this.removeNewToDoForm();
         });
@@ -88,7 +95,6 @@ class MainContainer {
         document.querySelector(".new-ToDo-form-container").remove();
     }
     renderToDoes(target, item) {
-        console.log(item.projectToDo.length);
         if (document.querySelector(".project-toDoes")) {
             document.querySelector(".project-toDoes").remove();
         }
@@ -111,6 +117,10 @@ class MainContainer {
             toDoDesc.classList.add("toDo-desc");
             toDoDesc.textContent = item.projectToDo[i].desc;
             toDoContainer.appendChild(toDoDesc);
+            const toDoPriority = document.createElement("h4");
+            toDoPriority.classList.add("toDo-priority");
+            toDoPriority.textContent = item.projectToDo[i].priority;
+            toDoContainer.appendChild(toDoPriority);
         }
     }
     render(target) {
