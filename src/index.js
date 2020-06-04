@@ -1,5 +1,3 @@
-import { ToDo } from './ToDo';
-import { Project } from './Project';
 import { SideMenu } from './SideMenu';
 import { MainContainer } from './MainContainer';
 
@@ -9,6 +7,6 @@ import { MainContainer } from './MainContainer';
 let AsideMenu = new SideMenu();
 let MainContent = new MainContainer();
 AsideMenu.render(document.querySelector("#content"));
-MainContent.render(document.querySelector("#content"));
+MainContent.render(document.querySelector("#content"), null);
 
-export { MainContent };
+export { AsideMenu, MainContent };

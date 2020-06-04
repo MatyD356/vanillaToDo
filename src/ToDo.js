@@ -1,5 +1,5 @@
 class ToDo {
-    constructor(title, desc, date, priority, checked) {
+    constructor(title, desc, date, priority) {
         this.title = title;
         this.date = date;
         this.desc = desc;
@@ -16,9 +16,6 @@ class ToDo {
     }
     changePriority(newPriority) {
         this.priority = newPriority;
-    }
-    checkDone() {
-        this.checked = true;
     }
 }
 export { ToDo };

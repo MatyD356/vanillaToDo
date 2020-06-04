@@ -1,4 +1,5 @@
-
+import { ToDo } from './ToDo';
+import { AsideMenu } from './index';
 class MainContainer {
     renderProjectToContainer(container, item) {
         container.innerHTML = "";
@@ -14,11 +15,12 @@ class MainContainer {
         const newToDoButton = document.createElement("button");
         newToDoButton.textContent = "ADD NEW TASK";
         newToDoButton.addEventListener("click", () => {
-            this.addNewToDoForm();
+            this.addNewToDoForm(item);
         });
         controlsDiv.appendChild(newToDoButton);
+        this.renderToDoes(container, item);
     }
-    addNewToDoForm() {
+    addNewToDoForm(target) {
         const formContainer = document.createElement("div");
         formContainer.classList.add("new-ToDo-form-container");
         document.body.appendChild(formContainer);
@@ -65,6 +67,14 @@ class MainContainer {
         const addNewToDoButton = document.createElement("button");
         addNewToDoButton.classList.add("add-NewToDo-button");
         addNewToDoButton.textContent = "ADD TASK";
+        addNewToDoButton.addEventListener("click", () => {
+            let title = document.querySelector(".toDo-title-input").value;
+            let date = document.querySelector(".toDo-date-input").value;
+            let desc = document.querySelector(".toDo-desc-input").value;
+            target.projectToDo.push(new ToDo(title, desc, date));
+            this.renderToDoes(document.querySelector(".main-content"), target);
+            this.removeNewToDoForm();
+        });
         form.appendChild(addNewToDoButton);
         const cancelNewToDo = document.createElement("button");
         cancelNewToDo.classList.add("cancel-NewToDo-button");
@@ -74,16 +84,34 @@ class MainContainer {
         });
         form.appendChild(cancelNewToDo);
     }
-    validateFormInput() {
-        if (true) {
-
-        }
-        else {
-            alert("bad")
-        }
-    }
     removeNewToDoForm() {
         document.querySelector(".new-ToDo-form-container").remove();
+    }
+    renderToDoes(target, item) {
+        console.log(item.projectToDo.length);
+        if (document.querySelector(".project-toDoes")) {
+            document.querySelector(".project-toDoes").remove();
+        }
+        let projectToDoes = document.createElement("div");
+        projectToDoes.classList.add("project-toDoes");
+        target.appendChild(projectToDoes);
+        for (let i = 0; i < item.projectToDo.length; i++) {
+            const toDoContainer = document.createElement("div");
+            toDoContainer.classList.add("toDo-container");
+            projectToDoes.appendChild(toDoContainer);
+            const toDoTitle = document.createElement("h2");
+            toDoTitle.classList.add("toDo-title");
+            toDoTitle.textContent = item.projectToDo[i].title;
+            toDoContainer.appendChild(toDoTitle);
+            const toDoDate = document.createElement("h3");
+            toDoDate.classList.add("toDo-date");
+            toDoDate.textContent = item.projectToDo[i].date;
+            toDoContainer.appendChild(toDoDate);
+            const toDoDesc = document.createElement("h4");
+            toDoDesc.classList.add("toDo-desc");
+            toDoDesc.textContent = item.projectToDo[i].desc;
+            toDoContainer.appendChild(toDoDesc);
+        }
     }
     render(target) {
         let main = document.createElement("main");

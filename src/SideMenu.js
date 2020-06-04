@@ -1,5 +1,6 @@
 import { Project } from './Project';
 import { MainContent } from './index';
+import { MainContainer } from './MainContainer';
 
 class SideMenu {
     constructor() {
@@ -79,7 +80,6 @@ class SideMenu {
             });
             projectDiv.appendChild(deleteProject);
             projectDiv.addEventListener("click", () => {
-                console.log("render this project todoes");
                 MainContent.renderProjectToContainer(document.querySelector(".main-content")
                     , this.projects[i]);
             });

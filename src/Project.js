@@ -14,11 +14,6 @@ class Project {
     addToDo(newToDo) {
         this.projectToDo.push(newToDo);
     }
-    renderToDoes() {
-        for (let i = 0; this.projectToDo.length; i++) {
-            console.log(`toDo${i}`);
-        }
-    }
 }
 
 export { Project }

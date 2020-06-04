@@ -40,6 +40,12 @@
       width: 80vw;
       min-height: 100vh;
       margin: 1rem;
+
+      .toDo-container {
+        width: 90%;
+        height: 10vh;
+        background-color: blue;
+      }
     }
   }
   .new-ToDo-form-container {
