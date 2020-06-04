@@ -68,15 +68,30 @@ class MainContainer {
         addNewToDoButton.classList.add("add-NewToDo-button");
         addNewToDoButton.textContent = "ADD TASK";
         addNewToDoButton.addEventListener("click", () => {
-            let title = document.querySelector(".toDo-title-input").value;
-            let date = document.querySelector(".toDo-date-input").value;
-            let desc = document.querySelector(".toDo-desc-input").value;
+            let title = null;
+            let date = null;
             let priority = null;
+            let desc = null;
+            if (document.querySelector(".toDo-title-input").value.length === 0) {
+                alert("pass a name");
+            } else {
+                title = document.querySelector(".toDo-title-input").value;
+            }
+            if (document.querySelector(".toDo-date-input").value == 0) {
+                alert("pass a due-date");
+            } else {
+                date = document.querySelector(".toDo-date-input").value;
+            }
+            desc = document.querySelector(".toDo-desc-input").value;
             let priorityContainer = document.querySelector(".priority-container");
             for (let i = 0; i < priorityContainer.children.length; i++) {
                 if (priorityContainer.children[i].checked) {
                     priority = priorityContainer.children[i].dataset.number;
                 }
+            }
+            if (!priority) {
+                alert("chose a priority");
+                return;
             }
             target.projectToDo.push(new ToDo(title, desc, date, priority));
             this.renderToDoes(document.querySelector(".main-content"), target);
