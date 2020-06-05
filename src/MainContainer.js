@@ -1,6 +1,20 @@
 import { ToDo } from './ToDo';
+
 class MainContainer {
-    renderProjectToContainer(container, item) {
+    updateStorage(i, newItem, action) {
+        let projects = JSON.parse(window.localStorage.getItem("projects"));
+        if (action == "addTo") {
+            projects[i].projectToDo.push(newItem)
+        }
+        else if (action == "remove") {
+            projects[i].projectToDo = projects[i].projectToDo.slice(0, i).concat(
+                projects[i].projectToDo.slice(i + 1, projects[i].projectToDo.length - 1)
+            );
+        }
+        window.localStorage.clear();
+        window.localStorage.setItem("projects", JSON.stringify(projects));
+    }
+    renderProjectToContainer(container, item, projectIndex) {
         container.innerHTML = "";
         //controls
         const controlsDiv = document.createElement("div");
@@ -14,12 +28,12 @@ class MainContainer {
         const newToDoButton = document.createElement("button");
         newToDoButton.textContent = "ADD NEW TASK";
         newToDoButton.addEventListener("click", () => {
-            this.addNewToDoForm(item);
+            this.addNewToDoForm(item, projectIndex);
         });
         controlsDiv.appendChild(newToDoButton);
-        this.renderToDoes(container, item);
+        this.renderToDoes(container, item, projectIndex);
     }
-    addNewToDoForm(target) {
+    addNewToDoForm(target, index) {
         const formContainer = document.createElement("div");
         formContainer.classList.add("new-ToDo-form-container");
         document.body.appendChild(formContainer);
@@ -92,8 +106,10 @@ class MainContainer {
                 alert("chose a priority");
                 return;
             }
-            target.projectToDo.push(new ToDo(title, desc, date, priority));
-            this.renderToDoes(document.querySelector(".main-content"), target);
+            let newToDo = new ToDo(title, desc, date, priority)
+            target.projectToDo.push(newToDo);
+            this.updateStorage(index, newToDo, "addTo");
+            this.renderToDoes(document.querySelector(".main-content"), target, index);
             this.removeNewToDoForm();
         });
         form.appendChild(addNewToDoButton);
@@ -108,7 +124,7 @@ class MainContainer {
     removeNewToDoForm() {
         document.querySelector(".new-ToDo-form-container").remove();
     }
-    renderToDoes(target, item) {
+    renderToDoes(target, item, index) {
         if (document.querySelector(".project-toDoes")) {
             document.querySelector(".project-toDoes").remove();
         }
@@ -142,6 +158,8 @@ class MainContainer {
                 item.projectToDo = item.projectToDo
                     .slice(0, i)
                     .concat(item.projectToDo.slice(i + 1, item.projectToDo.length - 1))
+                //update here
+                this.updateStorage(index, null, "remove");
                 e.target.parentElement.remove();
             });
             toDoContainer.appendChild(removeToDoButton);

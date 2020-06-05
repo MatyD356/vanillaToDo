@@ -8,10 +8,13 @@ class SideMenu {
         this.aside = document.createElement("aside");
     }
     saveToStorage() {
+        window.localStorage.clear();
         window.localStorage.setItem("projects", JSON.stringify(this.projects));
     }
     getProjects() {
-        this.projects = JSON.parse(window.localStorage.getItem("projects"));
+        if (window.localStorage.getItem("projects")) {
+            this.projects = JSON.parse(window.localStorage.getItem("projects"));
+        }
     }
     addProjectButton() {
         const projectButton = document.createElement("button");
@@ -39,6 +42,7 @@ class SideMenu {
             }
             if (date && name) {
                 this.projects.push((new Project(name, date)));
+                this.saveToStorage();
                 this.removeNewProjectForm();
                 this.addProjectButton();
             }
@@ -47,6 +51,7 @@ class SideMenu {
     removeProject(index) {
         if (this.projects.length >= index) {
             this.projects.splice(index, 1);
+            this.saveToStorage();
         }
     }
     removeProjectButton() {
@@ -83,7 +88,7 @@ class SideMenu {
             projectDiv.appendChild(deleteProject);
             projectDiv.addEventListener("click", () => {
                 MainContent.renderProjectToContainer(document.querySelector(".main-content")
-                    , this.projects[i]);
+                    , this.projects[i], i);
             });
             projectsContainer.appendChild(projectDiv);
         }
