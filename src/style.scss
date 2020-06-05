@@ -7,6 +7,7 @@
     #content {
       display: flex;
     }
+
     .aside-menu {
       background-color: red;
       min-height: 100vh;
@@ -43,7 +44,6 @@
 
       .toDo-container {
         width: 90%;
-        height: 10vh;
         background-color: blue;
       }
     }
@@ -59,7 +59,8 @@
     justify-content: center;
     align-items: center;
 
-    .new-ToDo-form {
+    .new-ToDo-form,
+    .change-toDo-name-form {
       width: 50%;
       height: 50vh;
       background-color: rgb(21, 255, 0);

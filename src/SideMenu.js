@@ -1,6 +1,5 @@
 import { Project } from './Project';
 import { MainContent } from './index';
-import { MainContainer } from './MainContainer';
 
 class SideMenu {
     constructor() {
@@ -8,8 +7,11 @@ class SideMenu {
         ];
         this.aside = document.createElement("aside");
     }
-    projectsList() {
-        return this.projects;
+    saveToStorage() {
+        window.localStorage.setItem("projects", JSON.stringify(this.projects));
+    }
+    getProjects() {
+        this.projects = JSON.parse(window.localStorage.getItem("projects"));
     }
     addProjectButton() {
         const projectButton = document.createElement("button");

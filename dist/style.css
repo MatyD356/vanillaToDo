@@ -1,1 +1,50 @@
-*{box-sizing:border-box;margin:0;padding:0}* body{background-color:black}* body #content{display:flex}* body .aside-menu{background-color:red;min-height:100vh;width:20vw;margin:1rem;display:flex;flex-direction:column}* body .aside-menu .project-container .project-div{cursor:pointer;margin:1rem;border:1px solid green}* body .aside-menu .project-container .project-div .project-title{color:blue}* body .aside-menu .add-project{order:2}* body .aside-menu .project-form{height:20vh;background-color:blue;order:1}* body .main-content{background-color:green;width:80vw;min-height:100vh;margin:1rem}* body .main-content .toDo-container{width:90%;height:10vh;background-color:blue}* .new-ToDo-form-container{position:absolute;left:0;top:0;height:100vh;width:100%;background-color:rgba(0,17,255,0.5);display:flex;justify-content:center;align-items:center}* .new-ToDo-form-container .new-ToDo-form{width:50%;height:50vh;background-color:#15ff00}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+  * body {
+    background-color: black; }
+    * body #content {
+      display: flex; }
+    * body .aside-menu {
+      background-color: red;
+      min-height: 100vh;
+      width: 20vw;
+      margin: 1rem;
+      display: flex;
+      flex-direction: column; }
+      * body .aside-menu .project-container .project-div {
+        cursor: pointer;
+        margin: 1rem;
+        border: 1px solid green; }
+        * body .aside-menu .project-container .project-div .project-title {
+          color: blue; }
+      * body .aside-menu .add-project {
+        order: 2; }
+      * body .aside-menu .project-form {
+        height: 20vh;
+        background-color: blue;
+        order: 1; }
+    * body .main-content {
+      background-color: green;
+      width: 80vw;
+      min-height: 100vh;
+      margin: 1rem; }
+      * body .main-content .toDo-container {
+        width: 90%;
+        background-color: blue; }
+  * .new-ToDo-form-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 17, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    * .new-ToDo-form-container .new-ToDo-form,
+    * .new-ToDo-form-container .change-toDo-name-form {
+      width: 50%;
+      height: 50vh;
+      background-color: #15ff00; }

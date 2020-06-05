@@ -1,5 +1,4 @@
 import { ToDo } from './ToDo';
-import { AsideMenu } from './index';
 class MainContainer {
     renderProjectToContainer(container, item) {
         container.innerHTML = "";
@@ -136,6 +135,16 @@ class MainContainer {
             toDoPriority.classList.add("toDo-priority");
             toDoPriority.textContent = item.projectToDo[i].priority;
             toDoContainer.appendChild(toDoPriority);
+            const removeToDoButton = document.createElement("button");
+            removeToDoButton.classList.add("btn", "remove-ToDo");
+            removeToDoButton.textContent = "REMOVE TO DO";
+            removeToDoButton.addEventListener("click", (e) => {
+                item.projectToDo = item.projectToDo
+                    .slice(0, i)
+                    .concat(item.projectToDo.slice(i + 1, item.projectToDo.length - 1))
+                e.target.parentElement.remove();
+            });
+            toDoContainer.appendChild(removeToDoButton);
         }
     }
     render(target) {
