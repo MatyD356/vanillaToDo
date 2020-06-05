@@ -5,10 +5,18 @@
   body {
     background-color: black;
     #content {
-      display: flex;
+      display: grid;
+      grid-template-areas:
+        "nav nav nav"
+        "aside main main"
+        "aside main main";
     }
-
+    .navbar {
+      grid-area: nav;
+      background-color: red;
+    }
     .aside-menu {
+      grid-area: aside;
       background-color: red;
       min-height: 100vh;
       width: 20vw;
@@ -37,6 +45,7 @@
       }
     }
     .main-content {
+      grid-area: main;
       background-color: green;
       width: 80vw;
       min-height: 100vh;
