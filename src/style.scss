@@ -6,20 +6,24 @@
     background-color: black;
     #content {
       display: grid;
+      grid-template-rows: 1fr 29fr 1fr;
       grid-template-areas:
         "nav nav nav"
         "aside main main"
-        "aside main main";
+        "aside main main"
+        "footer footer footer";
     }
     .navbar {
       grid-area: nav;
       background-color: red;
     }
+    .footer {
+      grid-area: footer;
+      background-color: red;
+    }
     .aside-menu {
       grid-area: aside;
       background-color: red;
-      min-height: 100vh;
-      width: 20vw;
       margin: 1rem;
       display: flex;
       flex-direction: column;
@@ -39,7 +43,6 @@
         order: 2;
       }
       .project-form {
-        height: 20vh;
         background-color: blue;
         order: 1;
       }
@@ -47,12 +50,9 @@
     .main-content {
       grid-area: main;
       background-color: green;
-      width: 80vw;
-      min-height: 100vh;
       margin: 1rem;
 
       .toDo-container {
-        width: 90%;
         background-color: blue;
       }
     }
@@ -61,8 +61,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: 100vh;
-    width: 100%;
     background-color: rgba(0, 17, 255, 0.5);
     display: flex;
     justify-content: center;
@@ -70,8 +68,6 @@
 
     .new-ToDo-form,
     .change-toDo-name-form {
-      width: 50%;
-      height: 50vh;
       background-color: rgb(21, 255, 0);
     }
   }
