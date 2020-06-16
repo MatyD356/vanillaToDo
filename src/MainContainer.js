@@ -22,10 +22,12 @@ class MainContainer {
         container.appendChild(controlsDiv);
         //title
         const projectTitle = document.createElement("h2");
+        projectTitle.classList.add("project-controls-title");
         projectTitle.textContent = item.name;
         controlsDiv.appendChild(projectTitle);
         // add button
         const newToDoButton = document.createElement("button");
+        newToDoButton.classList.add("project-controls-btn", "btn");
         newToDoButton.textContent = "ADD NEW TASK";
         newToDoButton.addEventListener("click", () => {
             this.addNewToDoForm(item, projectIndex);
@@ -72,10 +74,14 @@ class MainContainer {
         for (let i = 0; i < 3; i++) {
             let radio = document.createElement("input");
             radio.dataset.number = i;
+            radio.id = `priority${i}`;
             radio.type = "radio";
             radio.name = "priority";
             radio.classList.add("priority-radio");
             priorityInputContainer.appendChild(radio);
+            let label = document.createElement("label");
+            label.htmlFor = `priority${i}`;
+            priorityInputContainer.appendChild(label);
         }
         const addNewToDoButton = document.createElement("button");
         addNewToDoButton.classList.add("add-NewToDo-button");

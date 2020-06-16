@@ -69,15 +69,19 @@ class SideMenu {
         for (let i = 0; i < this.projects.length; i++) {
             const projectDiv = document.createElement("div");
             projectDiv.classList.add("project-div");
+            const projectInfo = document.createElement("div");
+            projectInfo.classList.add("project-info-container");
+            projectDiv.appendChild(projectInfo);
             const projectTitle = document.createElement("h2");
             projectTitle.classList.add("project-title");
             projectTitle.textContent = this.projects[i].name;
-            projectDiv.appendChild(projectTitle);
+            projectInfo.appendChild(projectTitle);
             const dueDate = document.createElement("div");
             dueDate.classList.add("project-due-date");
             dueDate.textContent = this.projects[i].date;
-            projectDiv.appendChild(dueDate);
+            projectInfo.appendChild(dueDate);
             const deleteProject = document.createElement("button");
+            deleteProject.classList.add("remove-toDo", "btn");
             deleteProject.id = i;
             deleteProject.textContent = "delete";
             deleteProject.addEventListener("click", (e) => {

@@ -1,74 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap");
+
+$logo-font: "Metal Mania", cursive;
+$roboto: "Roboto", sans-serif;
+$main-color: #ef9a58;
+$secondary-color: #c5856e;
+$light-color: #f2f2eb;
+$light-secondary: #9fa499;
+$dark-color: #2b3333;
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   body {
-    background-color: black;
+    background-color: $dark-color;
     #content {
       display: grid;
-      grid-template-rows: 1fr 29fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
       grid-template-areas:
         "nav nav nav"
         "aside main main"
         "aside main main"
         "footer footer footer";
+
+      .btn {
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 900;
+        border-radius: 5px;
+        padding: 0.75rem 1.5rem;
+        border: none;
+      }
     }
     .navbar {
       grid-area: nav;
-      background-color: red;
+      background-color: $main-color;
+      color: $dark-color;
+      padding: 1rem;
+
+      .logo {
+        margin-left: 1rem;
+        font-size: 3rem;
+        font-family: $logo-font;
+      }
     }
     .footer {
       grid-area: footer;
-      background-color: red;
+      background-color: $main-color;
+      color: $dark-color;
+      text-align: center;
+      font-family: $logo-font;
     }
     .aside-menu {
       grid-area: aside;
-      background-color: red;
       margin: 1rem;
       display: flex;
       flex-direction: column;
+      overflow-y: scroll;
 
       .project-container {
         .project-div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           cursor: pointer;
           margin: 1rem;
-          border: 1px solid green;
+          padding: 1rem;
+          border-radius: 5px;
+          background-color: $main-color;
 
-          .project-title {
-            color: blue;
+          .project-info-container {
+            .project-title {
+              color: $dark-color;
+            }
+
+            .project-due-date {
+              color: $dark-color;
+            }
+          }
+
+          .remove-toDo {
+            background-color: $dark-color;
+            color: $light-color;
+            font-size: 1.5rem;
           }
         }
       }
       .add-project {
+        margin: 0 1rem;
+        background-color: $main-color;
         order: 2;
       }
       .project-form {
-        background-color: blue;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: $main-color;
         order: 1;
+        color: $dark-color;
+
+        .add-project-form-title {
+          margin-bottom: 0.5rem;
+          font-weight: 900;
+        }
+        .inpt {
+          background-color: $dark-color;
+          color: $light-color;
+          border: none;
+          border-radius: 5px;
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+        }
+        .new-project-form-add,
+        .new-project-form-cancel {
+          background-color: $dark-color;
+          margin: 0.5rem 1rem 0 0;
+          padding: 0.75rem 1.5rem;
+          color: $light-color;
+        }
       }
     }
     .main-content {
       grid-area: main;
-      background-color: green;
       margin: 1rem;
+      padding: 1rem;
+      overflow-y: scroll;
 
+      .project-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .project-controls-title {
+          color: $main-color;
+        }
+        .project-controls-btn {
+          background-color: $main-color;
+        }
+      }
       .toDo-container {
-        background-color: blue;
+        padding: 1rem;
+        background-color: $main-color;
+        border-radius: 5px;
+        color: $dark-color;
+        margin-bottom: 1rem;
+
+        .toDo-title,
+        .toDo-date,
+        .toDo-desc,
+        .toDo-priority {
+          margin-bottom: 0.5rem;
+        }
+        .remove-ToDo {
+          background-color: $dark-color;
+          color: $light-color;
+        }
       }
     }
   }
   .new-ToDo-form-container {
     position: absolute;
+    height: 100vh;
+    width: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(0, 17, 255, 0.5);
+    background-color: #2b33337e;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .new-ToDo-form,
-    .change-toDo-name-form {
-      background-color: rgb(21, 255, 0);
+    .new-ToDo-form {
+      color: $dark-color;
+      padding: 2rem;
+      border-radius: 5px;
+      background-color: $main-color;
+
+      .toDo-title,
+      .toDo-title-input,
+      .toDo-date,
+      .toDo-date-input,
+      .toDo-desc-title,
+      .toDo-desc-input,
+      .toDo-priority-title,
+      .priority-container {
+        margin-bottom: 0.5rem;
+      }
+      .toDo-title-input,
+      .toDo-date-input,
+      .toDo-desc-input {
+        background-color: $dark-color;
+        border-radius: 5px;
+        border: none;
+        color: $light-color;
+        padding: 1rem;
+      }
+      .add-NewToDo-button,
+      .cancel-NewToDo-button {
+        cursor: pointer;
+        background-color: $dark-color;
+        color: $light-color;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        border: none;
+      }
+      .priority-container input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+      }
+      .priority-container label {
+        cursor: pointer;
+        display: inline-block;
+        padding: 1rem;
+        border: 2px solid $dark-color;
+        border-radius: 50%;
+      }
+      .priority-container label:nth-child(2) {
+        background-color: red;
+      }
+      .priority-container label:nth-child(4) {
+        background-color: yellow;
+      }
+      .priority-container label:nth-child(6) {
+        background-color: green;
+      }
+      .p .priority-container input[type="radio"]:checked + label {
+        background-color: $dark-color;
+      }
+      .priority-container input[type="radio"]:focus + label {
+        border: 2px solid $dark-color;
+        opacity: 0.5;
+      }
+
+      .add-NewToDo-button {
+        margin-right: 1rem;
+      }
     }
   }
 }
