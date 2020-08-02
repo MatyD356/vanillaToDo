@@ -5,37 +5,29 @@
   margin: 0;
   padding: 0; }
   * body {
-    background-color: #2b3333; }
+    background-color: #fbfbfcff; }
     * body #content {
       display: grid;
       grid-template-rows: auto 1fr auto;
+      grid-template-columns: 1fr 2fr;
       height: 100vh;
       grid-template-areas: "nav nav nav" "aside main main" "aside main main" "footer footer footer"; }
       * body #content .btn {
         cursor: pointer;
         display: inline-block;
         font-weight: 900;
-        border-radius: 5px;
         padding: 0.75rem 1.5rem;
         border: none; }
     * body .navbar {
       grid-area: nav;
-      background-color: #ef9a58;
-      color: #2b3333;
+      background-color: #2097f3ff;
+      color: #fbfbfcff;
       padding: 1rem; }
       * body .navbar .logo {
-        margin-left: 1rem;
         font-size: 3rem;
-        font-family: "Metal Mania", cursive; }
-    * body .footer {
-      grid-area: footer;
-      background-color: #ef9a58;
-      color: #2b3333;
-      text-align: center;
-      font-family: "Metal Mania", cursive; }
+        font-family: "Roboto", sans-serif; }
     * body .aside-menu {
       grid-area: aside;
-      margin: 1rem;
       display: flex;
       flex-direction: column;
       overflow-y: scroll; }
@@ -46,62 +38,58 @@
         cursor: pointer;
         margin: 1rem;
         padding: 1rem;
-        border-radius: 5px;
-        background-color: #ef9a58; }
-        * body .aside-menu .project-container .project-div .project-info-container .project-title {
-          color: #2b3333; }
+        background-color: #2097f3ff; }
+        * body .aside-menu .project-container .project-div .project-info-container .project-title,
         * body .aside-menu .project-container .project-div .project-info-container .project-due-date {
-          color: #2b3333; }
+          color: #fbfbfcff; }
         * body .aside-menu .project-container .project-div .remove-toDo {
-          background-color: #2b3333;
+          background-color: #ed1c24ff;
           color: #f2f2eb;
           font-size: 1.5rem; }
       * body .aside-menu .add-project {
         margin: 0 1rem;
-        background-color: #ef9a58;
+        color: #f2f2eb;
+        background-color: #2097f3ff;
         order: 2; }
       * body .aside-menu .project-form {
         margin: 1rem;
         padding: 1rem;
-        border-radius: 5px;
-        background-color: #ef9a58;
-        order: 1;
-        color: #2b3333; }
+        background-color: #2097f3ff;
+        order: 1; }
         * body .aside-menu .project-form .add-project-form-title {
+          color: #fbfbfcff;
           margin-bottom: 0.5rem;
           font-weight: 900; }
         * body .aside-menu .project-form .inpt {
-          background-color: #2b3333;
-          color: #f2f2eb;
+          color: #848a8dff;
           border: none;
-          border-radius: 5px;
           padding: 0.5rem;
           margin-bottom: 1rem; }
         * body .aside-menu .project-form .new-project-form-add,
         * body .aside-menu .project-form .new-project-form-cancel {
-          background-color: #2b3333;
+          background-color: #ed1c24ff;
           margin: 0.5rem 1rem 0 0;
           padding: 0.75rem 1.5rem;
           color: #f2f2eb; }
     * body .main-content {
       grid-area: main;
-      margin: 1rem;
       padding: 1rem;
       overflow-y: scroll; }
       * body .main-content .project-controls {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1rem; }
+        margin-bottom: 1rem;
+        color: #fbfbfcff; }
         * body .main-content .project-controls .project-controls-title {
-          color: #ef9a58; }
+          color: #1c7c54ff; }
         * body .main-content .project-controls .project-controls-btn {
-          background-color: #ef9a58; }
+          background-color: #1c7c54ff;
+          color: #fbfbfcff; }
       * body .main-content .toDo-container {
         padding: 1rem;
-        background-color: #ef9a58;
-        border-radius: 5px;
-        color: #2b3333;
+        background-color: #1c7c54ff;
+        color: #fbfbfcff;
         margin-bottom: 1rem; }
         * body .main-content .toDo-container .toDo-title,
         * body .main-content .toDo-container .toDo-date,
@@ -109,7 +97,7 @@
         * body .main-content .toDo-container .toDo-priority {
           margin-bottom: 0.5rem; }
         * body .main-content .toDo-container .remove-ToDo {
-          background-color: #2b3333;
+          background-color: #ed1c24ff;
           color: #f2f2eb; }
   * .new-ToDo-form-container {
     position: absolute;
@@ -125,7 +113,7 @@
       color: #2b3333;
       padding: 2rem;
       border-radius: 5px;
-      background-color: #ef9a58; }
+      background-color: #2097f3ff; }
       * .new-ToDo-form-container .new-ToDo-form .toDo-title,
       * .new-ToDo-form-container .new-ToDo-form .toDo-title-input,
       * .new-ToDo-form-container .new-ToDo-form .toDo-date,
@@ -138,18 +126,15 @@
       * .new-ToDo-form-container .new-ToDo-form .toDo-title-input,
       * .new-ToDo-form-container .new-ToDo-form .toDo-date-input,
       * .new-ToDo-form-container .new-ToDo-form .toDo-desc-input {
-        background-color: #2b3333;
-        border-radius: 5px;
+        background-color: #fbfbfcff;
         border: none;
-        color: #f2f2eb;
         padding: 1rem; }
       * .new-ToDo-form-container .new-ToDo-form .add-NewToDo-button,
       * .new-ToDo-form-container .new-ToDo-form .cancel-NewToDo-button {
         cursor: pointer;
-        background-color: #2b3333;
+        background-color: #ed1c24ff;
         color: #f2f2eb;
         padding: 0.75rem 1.5rem;
-        border-radius: 5px;
         border: none; }
       * .new-ToDo-form-container .new-ToDo-form .priority-container input[type="radio"] {
         opacity: 0;
@@ -159,8 +144,7 @@
         cursor: pointer;
         display: inline-block;
         padding: 1rem;
-        border: 2px solid #2b3333;
-        border-radius: 50%; }
+        margin-right: 1rem; }
       * .new-ToDo-form-container .new-ToDo-form .priority-container label:nth-child(2) {
         background-color: red; }
       * .new-ToDo-form-container .new-ToDo-form .priority-container label:nth-child(4) {
@@ -170,7 +154,6 @@
       * .new-ToDo-form-container .new-ToDo-form .p .priority-container input[type="radio"]:checked + label {
         background-color: #2b3333; }
       * .new-ToDo-form-container .new-ToDo-form .priority-container input[type="radio"]:focus + label {
-        border: 2px solid #2b3333;
         opacity: 0.5; }
       * .new-ToDo-form-container .new-ToDo-form .add-NewToDo-button {
         margin-right: 1rem; }
