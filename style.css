@@ -41,13 +41,14 @@
         background-color: #2097f3ff; }
         * body .aside-menu .project-container .project-div .project-info-container .project-title,
         * body .aside-menu .project-container .project-div .project-info-container .project-due-date {
+          font-family: "Roboto", sans-serif;
           color: #fbfbfcff; }
         * body .aside-menu .project-container .project-div .remove-toDo {
           background-color: #ed1c24ff;
           color: #f2f2eb;
           font-size: 1.5rem; }
       * body .aside-menu .add-project {
-        margin: 0 1rem;
+        margin: 1rem;
         color: #f2f2eb;
         background-color: #2097f3ff;
         order: 2; }
@@ -82,7 +83,8 @@
         margin-bottom: 1rem;
         color: #fbfbfcff; }
         * body .main-content .project-controls .project-controls-title {
-          color: #1c7c54ff; }
+          color: #1c7c54ff;
+          font-family: "Roboto", sans-serif; }
         * body .main-content .project-controls .project-controls-btn {
           background-color: #1c7c54ff;
           color: #fbfbfcff; }
@@ -95,6 +97,8 @@
         * body .main-content .toDo-container .toDo-date,
         * body .main-content .toDo-container .toDo-desc,
         * body .main-content .toDo-container .toDo-priority {
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
           margin-bottom: 0.5rem; }
         * body .main-content .toDo-container .remove-ToDo {
           background-color: #ed1c24ff;
